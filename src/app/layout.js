@@ -19,8 +19,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const isRTL = 'rtl'
   return (
-    <html lang="en">
+    <html lang="en" dir={isRTL}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
