@@ -2,7 +2,7 @@ import { FaPhone, FaSearch, FaShoppingCart, FaStore } from "react-icons/fa";
 import Image from "next/image";
 function Topbar() {
   return (
-    <div className="w-full border p-2 flex flex-col items-center text-sm font-medium">
+    <div className="w-full p-2 flex flex-col items-center text-sm font-medium">
       <div className="flex flex-row justify-center items-center gap-10 w-fit">
         <div className="flex justify-center items-center">
           <Image
@@ -49,7 +49,7 @@ function Topbar() {
             {/* Bottom nav */}
             <div className="w-full flex justify-center gap-6 text-gray-700">
               <div className="relative">
-                <button className="bg-blue-600 text-white rounded-xl p-3 flex items-center gap-1">
+                <button className="bg-[#2d60a5] text-white rounded-xl p-3 flex items-center gap-1">
                   دسته بندی ها
                   <svg
                     className="w-3 h-3"
