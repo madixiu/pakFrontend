@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Topbar from "./Components/Topbar";
 import Banner from "./Components/Banner";
+import Category from "./Components/Category";
 export default function Home() {
   return (
     <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
       <Topbar /> {/* Render the Topbar */}
       <main className="flex flex-col gap-[32px] ">
         <Banner />
+        <Category />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
