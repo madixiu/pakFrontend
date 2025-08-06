@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
       <Topbar /> {/* Render the Topbar */}
-      <main className="flex flex-col gap-[32px] ">
+      <main className="flex flex-col">
         <Banner />
         <Category />
       </main>
