@@ -2,6 +2,7 @@ import Image from "next/image";
 import Topbar from "./Components/Topbar";
 import Banner from "./Components/Banner";
 import Category from "./Components/Category";
+import About from "./Components/About";
 export default function Home() {
   return (
     <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
@@ -14,8 +15,9 @@ export default function Home() {
           alt="Description of the image"
           width={400}
           height={400}
-          className="absolute right-0 bottom-[13%]"
+          className="absolute right-0 top-[46%]"
         />
+        <About />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
