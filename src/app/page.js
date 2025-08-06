@@ -6,9 +6,16 @@ export default function Home() {
   return (
     <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
       <Topbar /> {/* Render the Topbar */}
-      <main className="flex flex-col">
+      <main className="flex flex-col relative">
         <Banner />
         <Category />
+        <Image
+          src="/drop1.png"
+          alt="Description of the image"
+          width={400}
+          height={400}
+          className="absolute right-0 bottom-[13%]"
+        />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
