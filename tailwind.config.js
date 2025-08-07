@@ -2,12 +2,17 @@
 module.exports = {
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-AbarFont)", "sans-serif"],
+        // or create a custom class:
+        // yourfont: ["var(--font-yourfont)", "sans-serif"],
+      },
       colors: {
-        'primary': '#2d60a5',
-        'secondary': '#ff5d00',
-        'accent': '#ff006e',
-        'background-1':'#fff',
-        'background-2':'#e7edf6'
+        primary: "#2d60a5",
+        secondary: "#ff5d00",
+        accent: "#ff006e",
+        "background-1": "#fff",
+        "background-2": "#e7edf6",
         // 'custom-blue': {
         //   100: '#dbeafe',
         //   200: '#bfdbfe',
@@ -19,7 +24,7 @@ module.exports = {
         //   800: '#1e40af',
         //   900: '#1e3a8a',
         // }
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};

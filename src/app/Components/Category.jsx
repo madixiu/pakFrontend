@@ -3,7 +3,7 @@ import Image from "next/image";
 function Category() {
   return (
     <div className="flex flex-col bg-[#274181] w-full justify-center items-center py-10">
-      {/* <h2 className="text-white font-extrabold">دسته بندی</h2> */}
+      <h2 className="text-white text-2xl font-extrabold mb-5">دسته بندی ها</h2>
       <div className="flex flex-row gap-2">
         {CategoryData.map((category) => (
           <CategoryCard

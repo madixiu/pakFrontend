@@ -30,19 +30,19 @@ function Topbar() {
               <div className="mx-5">
                 <span className="text-gray-700">
                   صدای مشتری:
-                  <a className="text-black font-semibold">021-9606-0946</a>
                 </span>
+                  <span className="text-black font-semibold">021-9606-0946</span>
 
               </div>
               {/* Left buttons */}
               <div className="flex items-center gap-4">
                 <button className="flex items-center gap-1 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
-                  <FaShoppingCart />
-                  خرید محصولات
-                </button>
-                <button className="flex items-center gap-1 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
                   <FaStore />
                   نمایندگی ها
+                </button>
+                <button className="flex items-center gap-1 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
+                  <FaShoppingCart />
+                  خرید محصولات
                 </button>
               </div>
             </div>
