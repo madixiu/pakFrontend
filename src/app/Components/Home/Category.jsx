@@ -28,7 +28,7 @@ function CategoryCard({ title, image }) {
           alt={title}
           width={100}
           height={100}
-          className="dark:invert"
+          // className="dark:invert"
         />
         <span className="font-bold text-white">{title}</span>
       </div>

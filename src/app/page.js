@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Topbar from "./Components/Topbar";
-import Banner from "./Components/Banner";
-import Category from "./Components/Category";
-import About from "./Components/About";
+import Banner from "./Components/Home/Banner";
+import Category from "./Components/Home/Category";
+import About from "./Components/Home/About";
 export default function Home() {
   return (
     <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
