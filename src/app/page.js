@@ -4,6 +4,8 @@ import Banner from "./Components/Home/Banner";
 import Category from "./Components/Home/Category";
 import About from "./Components/Home/About";
 import History from "./Components/Home/History";
+import New from "./Components/Home/New";
+import Products from "./Components/Home/Products";
 export default function Home() {
   return (
     <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
@@ -15,20 +17,22 @@ export default function Home() {
           <Image
             src="/drop1.png"
             alt="Description of the image"
-            width={400}
-            height={400}
-            className="absolute right-0 top-[46%]"
+            width={500}
+            height={500}
+            className="absolute right-0 top-[45%]"
           />
           <Image
             src="/drop2.png"
             alt="Description of the image"
-            width={500}
-            height={500}
-            className="absolute left-[-295] bottom-[440] rotate-[-0deg]"
+            width={250}
+            height={250}
+            className="absolute left-[0] bottom-[440] rotate-[-0deg]"
           />
           <About />
         </div>
         <History />
+        <New />
+        <Products />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a

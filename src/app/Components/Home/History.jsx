@@ -2,9 +2,9 @@ import Image from "next/image";
 function History() {
   return (
     <div>
-      <div className="flex flex-row gap-5 my-10 px-15">
-        <span>درباره ما</span>
-        <span className="font-bold text-2xl">تاریخچه‌ای پُر افتخار، ریشه‌دار در کیفیت</span>
+      <div className="flex flex-col gap-5 my-10 px-15">
+        <span>تاریخچه ما</span>
+        <span className="font-bold text-2xl">تاریخچه‌ای پر افتخار، ریشه‌دار در کیفیت</span>
       </div>
       <div className="flex flex-row justify-center items-center gap-3 relative">
         <Image
@@ -14,7 +14,7 @@ function History() {
           width={268}
           height={100}
         />
-        <div className="relative w-fi">
+        <div className="relative w-fit">
           <Image
             src={"/history/history2bw.jpg"}
             alt={"history image"}
