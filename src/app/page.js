@@ -3,28 +3,32 @@ import Topbar from "./Components/Topbar";
 import Banner from "./Components/Home/Banner";
 import Category from "./Components/Home/Category";
 import About from "./Components/Home/About";
+import History from "./Components/Home/History";
 export default function Home() {
   return (
     <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
       <Topbar /> {/* Render the Topbar */}
-      <main className="flex flex-col relative">
-        <Banner />
-        <Category />
-        <Image
-          src="/drop1.png"
-          alt="Description of the image"
-          width={400}
-          height={400}
-          className="absolute right-0 top-[46%]"
-        />
-        <Image
-          src="/drop2.png"
-          alt="Description of the image"
-          width={500}
-          height={500}
-          className="absolute left-[-295] bottom-[440] rotate-[-0deg]"
-        />
-        <About />
+      <main className="flex flex-col">
+        <div className="relative">
+          <Banner />
+          <Category />
+          <Image
+            src="/drop1.png"
+            alt="Description of the image"
+            width={400}
+            height={400}
+            className="absolute right-0 top-[46%]"
+          />
+          <Image
+            src="/drop2.png"
+            alt="Description of the image"
+            width={500}
+            height={500}
+            className="absolute left-[-295] bottom-[440] rotate-[-0deg]"
+          />
+          <About />
+        </div>
+        <History />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
