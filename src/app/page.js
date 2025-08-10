@@ -6,6 +6,7 @@ import About from "./Components/Home/About";
 import History from "./Components/Home/History";
 import New from "./Components/Home/New";
 import Products from "./Components/Home/Products";
+import Prizes from "./Components/Home/Prizes";
 export default function Home() {
   return (
     <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
@@ -33,6 +34,7 @@ export default function Home() {
         <History />
         <New />
         <Products />
+        <Prizes />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
