@@ -55,12 +55,12 @@ function Prizes() {
         {Certificates.map((certificate) => (
           <div
             key={certificate.id}
-            className="flex flex-col justify-center items-center gap-4 border p-5 rounded-2xl border-neutral-200"
+            className="flex flex-col justify-center items-center gap-4 border p-5 rounded-2xl border-neutral-200  cursor-pointer hover:shadow"
           >
             <Image
               src={certificate.src}
               alt={certificate.alt}
-              className="object-cover shadow-l cursor-pointer hover:shadow-2xl"
+              className="object-cover shadow-l"
               height={200}
               width={200}
             />
