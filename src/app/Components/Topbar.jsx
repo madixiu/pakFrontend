@@ -27,11 +27,14 @@ function Topbar() {
                 />
                   <FaSearch className="absolute rounded-lg size-6 bg-neutral-100 p-1 left-2 top-1/2 transform -translate-y-1/2 text-gray-500" />
               </div>
-              <div className="mx-5">
+              <div className="flex flex-row gap-2">
                 <span className="text-gray-700">
                   صدای مشتری:
                 </span>
-                  <span className="text-black font-semibold">021-9606-0946</span>
+                <div>
+
+                                  <span className="text-black font-semibold">021-9606-0946</span>
+                </div>
 
               </div>
               {/* Left buttons */}
