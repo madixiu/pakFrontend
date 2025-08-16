@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Topbar from "./Components/Topbar";
 import Banner from "./Components/Home/Banner";
 import Category from "./Components/Home/Category";
 import About from "./Components/Home/About";
@@ -8,11 +7,11 @@ import New from "./Components/Home/New";
 import Products from "./Components/Home/Products";
 import Prizes from "./Components/Home/Prizes";
 import News from "./Components/Home/News";
-import Footer from "./Components/Footer";
+
 export default function Home() {
   return (
     <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
-      <Topbar /> {/* Render the Topbar */}
+      {/* <Topbar /> Render the Topbar */}
       <main className="flex flex-col">
         <div className="relative">
           <Banner />
@@ -39,7 +38,6 @@ export default function Home() {
         <Prizes />
         <News />
       </main>
-      <Footer />
     </div>
   );
 }
