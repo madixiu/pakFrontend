@@ -66,13 +66,13 @@ function Topbar() {
               </div>
               {/* Left buttons */}
               <div className="flex items-center gap-4">
-                <button className="flex items-center gap-1 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
+                <button className="flex items-center gap-2 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
+                  <span>نمایندگی ها</span>
                   <FaStore />
-                  نمایندگی ها
                 </button>
-                <button className="flex items-center gap-1 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
+                <button className="flex items-center gap-2 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
+                  <span>خرید محصولات</span>
                   <FaShoppingCart />
-                  خرید محصولات
                 </button>
               </div>
             </div>
