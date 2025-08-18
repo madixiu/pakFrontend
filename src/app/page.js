@@ -10,7 +10,7 @@ import News from "./Components/Home/News";
 
 export default function Home() {
   return (
-    <div className=" items-center justify-items-center min-h-screen pb-20 gap-16 ">
+    <div className=" items-center justify-items-center min-h-screen">
       {/* <Topbar /> Render the Topbar */}
       <main className="flex flex-col">
         <div className="relative">
