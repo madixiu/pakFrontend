@@ -2,7 +2,7 @@ import Image from "next/image";
 // import CategoryCard from "./Home/CategoryCard";
 function Category() {
   return (
-    <div className="flex flex-col bg-[#274181] w-full justify-center items-center py-10">
+    <div className="flex flex-col bg-[#274181] w-full justify-center items-center py-20">
       <h2 className="text-white text-2xl font-extrabold mb-5">دسته بندی ها</h2>
       <div className="flex flex-row gap-2">
         {CategoryData.map((category) => (
@@ -21,7 +21,7 @@ export default Category;
 
 function CategoryCard({ title, image }) {
   return (
-    <div className="bg-[#3d5797] flex w-fit p-7 rounded-2xl hover:bg-[#ff5d00] cursor-pointer transition-colors duration-500">
+    <div className="bg-[#3d5797] flex w-fit p-7 rounded-2xl hover:bg-[#ff5d00] cursor-pointer transition-colors duration-300 hover:shadow-xl">
       <div className="flex flex-col justify-center items-center">
         <Image
           src={image}
