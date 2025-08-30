@@ -24,9 +24,9 @@ function Banner() {
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-2 drop-shadow-lg leading-20">
             شیر پرچرب و کم چرب فراپاستوریزه
           </h1>
-          <p className="text-white mb-4 drop-shadow-md max-w-md mx-auto">
+          {/* <p className="text-white mb-4 drop-shadow-md max-w-md mx-auto">
             Your subtitle
-          </p>
+          </p> */}
           <button className="bg-white text-black px-5 py-3 rounded-2xl hover:bg-neutral-200 cursor-pointer">
             <div className="flex flex-row justify-center items-center gap-1">
               <span>مشاهده</span>

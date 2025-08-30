@@ -20,7 +20,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const isRTL = "rtl";
+  // const isRTL = "rtl";
   return (
     <html lang="en" dir={"rtl"}>
       <body
