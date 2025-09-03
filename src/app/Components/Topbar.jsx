@@ -127,7 +127,7 @@ function Topbar() {
               </div>
               <div
                 className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5]"
-                onClick={() => handleClick("/")}
+                onClick={() => handleClick("/about")}
               >
                 <MdFormatListBulleted />
                 <span>درباره ما</span>
