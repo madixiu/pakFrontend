@@ -13,8 +13,8 @@ import Image from "next/image";
 function Footer() {
   return (
     <footer className="flex flex-1 justify-center">
-      <div className="flex flex-col p-20 relative mt-[260px]">
-        <div className="absolute top-[-260px] w-full left-0">
+      <div className="flex flex-col md:p-20 p-5 relative mt-[260px]">
+        <div className="absolute md:top-[-260px] top-[-50px] w-full left-0">
           <Image
             src="/milkSplash.png"
             alt="Footer Background"
@@ -24,7 +24,7 @@ function Footer() {
             // className="absolute top-0"
           />
         </div>
-        <div className="flex flex-row flex-1 p-5 gap-20">
+        <div className="flex md:flex-row flex-col flex-1 md:p-5 p-0 gap-20">
           <div className="flex flex-col flex-1 gap-10">
             <div className="flex flex-row gap-4">
               <div>
@@ -37,7 +37,7 @@ function Footer() {
                 />
               </div>
               <div className="flex items-center">
-                <span className="font-extrabold text-2xl">
+                <span className="font-extrabold sm:text-2xl">
                   شرکت لبنیات و بستنی پاستوریزه پاک
                 </span>
               </div>
@@ -54,7 +54,7 @@ function Footer() {
               </span>
             </div>
           </div>
-          <div className="bg-[#F4F4F4] w-[2]"></div>
+          <div className="sm:flex hidden bg-[#F4F4F4] w-[2]"></div>
           <div className="flex flex-col gap-2 flex-1">
             <div>
               <span>راه های ارتباطی</span>
@@ -138,7 +138,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="bg-[#285caa] flex flex-row rounded-2xl p-5 justify-between">
+        <div className="bg-[#285caa] flex lg:flex-row flex-col mt-5 rounded-2xl p-5 justify-between">
           <div className="flex flex-row gap-2">
             <div className="bg-[#3969b1] border-[#567ebc] rounded-full p-1 border-3 cursor-pointer hover:bg-[#ff7023] hover:border-[#ff7023]   transition-colors duration-300">
               <BsWhatsapp className="text-white size-6" />
