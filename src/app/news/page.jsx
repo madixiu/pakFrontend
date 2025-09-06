@@ -65,53 +65,53 @@ export default function News() {
 
 function Archive() {
     // fallback for demo
-  if (!products || products.length === 0) {
-    products = [
-      { id: 1, title: "محصول 1", fat: 10, image: "/test.png" },
-      {
-        id: 2,
-        title: "محصول 2",
-        fat: 20,
-        image: "/test.png",
-      },
-      {
-        id: 3,
-        title: "محصول 3",
-        fat: 30,
-        image: "/test.png",
-      },
-      {
-        id: 4,
-        title: "محصول 4",
-        fat: 40,
-        image: "/test.png",
-      },
-      {
-        id: 5,
-        title: "محصول 5",
-        fat: 50,
-        image: "/test.png",
-      },
-      {
-        id: 6,
-        title: "محصول 6",
-        fat: 60,
-        image: "/test.png",
-      },
-      {
-        id: 7,
-        title: "محصول 7",
-        fat: 70,
-        image: "/test.png",
-      },
-      {
-        id: 8,
-        title: "محصول 8",
-        fat: 80,
-        image: "/test.png",
-      }
-    ];
-  }
+  // if (!products || products.length === 0) {
+  //   products = [
+  //     { id: 1, title: "محصول 1", fat: 10, image: "/test.png" },
+  //     {
+  //       id: 2,
+  //       title: "محصول 2",
+  //       fat: 20,
+  //       image: "/test.png",
+  //     },
+  //     {
+  //       id: 3,
+  //       title: "محصول 3",
+  //       fat: 30,
+  //       image: "/test.png",
+  //     },
+  //     {
+  //       id: 4,
+  //       title: "محصول 4",
+  //       fat: 40,
+  //       image: "/test.png",
+  //     },
+  //     {
+  //       id: 5,
+  //       title: "محصول 5",
+  //       fat: 50,
+  //       image: "/test.png",
+  //     },
+  //     {
+  //       id: 6,
+  //       title: "محصول 6",
+  //       fat: 60,
+  //       image: "/test.png",
+  //     },
+  //     {
+  //       id: 7,
+  //       title: "محصول 7",
+  //       fat: 70,
+  //       image: "/test.png",
+  //     },
+  //     {
+  //       id: 8,
+  //       title: "محصول 8",
+  //       fat: 80,
+  //       image: "/test.png",
+  //     }
+  //   ];
+  // }
   return ( 
     <div className="flex justify-center">
       <div className="flex justify-between items-st flex-row  w-[80%] bg-amber-100">
