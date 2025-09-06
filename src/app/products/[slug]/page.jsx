@@ -21,6 +21,7 @@ export default async function Products({ params }) {
     powder: 6,
     doogh: 7,
     icecream: 8,
+    curd: 9
   };
   const id = slugMap[slug] || null;
 

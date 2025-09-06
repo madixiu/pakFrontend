@@ -65,10 +65,12 @@ function CategoryCard({
 }
 
 const CategoryData = [
-  { id: 1, title: "خامه", image: "/cream.svg", slug: "cream" },
-  { id: 2, title: "شیر", image: "/milk.svg", slug: "milk" },
+  { id: 1, title: "شیر", image: "/milk.svg", slug: "milk" },
+  { id: 2, title: "خامه", image: "/cream.svg", slug: "cream" },
   { id: 3, title: "کره", image: "/butter.svg", slug: "butter" },
   { id: 4, title: "پنیر", image: "/cheese.svg", slug: "cheese" },
   { id: 5, title: "ماست", image: "/yogurt.svg", slug: "yogurt" },
   { id: 6, title: "دوغ", image: "/doogh.svg", slug: "doogh" },
+  { id: 7, title: "بستنی", image: "/ice-cream.svg", slug: "icecream" },
+  { id: 8, title: "کشک", image: "/curd.svg", slug: "curd" }
 ];
