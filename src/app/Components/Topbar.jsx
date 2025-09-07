@@ -79,14 +79,14 @@ const useOutsideClick = (callback) => {
               className="transition-all duration-300 ease-in-out"
               // width={isScrolled ? 60 : 80}
               // height={isScrolled ? 60 : 80}
-              width={80}
-              height={80}
+              width={90}
+              height={90}
             />
           </div>
           <div className="flex justify-center items-center">
             <div className="flex flex-col gap-6 justify-center items-center">
               {/* Phone & search */}
-              <div className="flex items-center gap-7">
+              <div className="w-full flex items-start gap-7">
                 <div className="relative">
                   <input
                     type="text"
@@ -95,16 +95,16 @@ const useOutsideClick = (callback) => {
                   />
                   <FaSearch className="absolute rounded-lg size-6 bg-neutral-100 p-1 left-2 top-1/2 transform -translate-y-1/2 text-gray-500" />
                 </div>
-                <div className="flex flex-row gap-2">
+                {/* <div className="flex flex-row gap-2">
                   <span className="text-gray-700">صدای مشتری:</span>
                   <div>
                     <span className="text-black font-semibold">
                       021-9606-0946
                     </span>
                   </div>
-                </div>
+                </div> */}
                 {/* Left buttons */}
-                <div className="flex items-center gap-4">
+                {/* <div className="flex items-center gap-4">
                   <button className="flex items-center gap-2 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
                     <span>نمایندگی ها</span>
                     <FaStore />
@@ -113,7 +113,7 @@ const useOutsideClick = (callback) => {
                     <span>خرید محصولات</span>
                     <FaShoppingCart />
                   </button>
-                </div>
+                </div> */}
               </div>
               {/* Bottom nav */}
               <div className="w-full flex justify-center gap-6 text-gray-700">
