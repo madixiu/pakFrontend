@@ -1,10 +1,20 @@
 import BreadCrumb from "../Components/BreadCrumb";
 import Image from "next/image";
+import { apiUrl } from "@/lib/api";
+import { fallbackImage } from "@/lib/constant";
+
 import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIos,
 } from "react-icons/md";
-export default function News() {
+export default async function News() {
+
+  const NewsData = await fetch(apiUrl(`/api/news/`) , {
+    cache: "no-store"
+  })
+    .then(response => response.json())
+    .catch(error => console.error("Error fetching news:", error));
+
   return (
     <div>
       <BreadCrumb path={["خانه", "اخبار"]} />
@@ -57,12 +67,12 @@ export default function News() {
       </div>
 
       {/* //?Archive mode  */}
-      <Archive />
+      <Archive data={NewsData}/>
     </div>
   );
 }
 
-async function Archive() {
+async function Archive({ data }) {
   const news = [
     {
       id: 1,
@@ -133,19 +143,19 @@ async function Archive() {
           <span className="hover:text-[#ff5d00] cursor-pointer">پر بازدید ترین</span>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-10 my-20 w-[80%]">
-        {news.map((item) => (
-          <div className="flex flex-col justify-center items-center gap-5 rounded-2xl hover:shadow cursor-pointer">
-            <Image src={item.image} alt={item.title} width={300} height={120} className="rounded-xl w-full"/>
-            <div className="flex flex-col w-full gap-3 p-2">
+      <div className="grid grid-cols-4 gap-15 my-20 w-[80%]">
+        {data.map((item) => (
+          <div className="flex flex-col justify-center items-center gap-2 rounded-2xl hover:shadow cursor-pointer">
+            <Image src={item.image ? item.image : fallbackImage } alt={item.title} width={300} height={100} className="rounded-xl w-full aspect-[16/10]"/>
+            <div className="flex flex-col w-full gap-5 p-2">
               <div className="bg-[#e7edf6] rounded-xl py-1 px-4 shadow w-fit">
                 <span className="text-xs">اخبار</span>
               </div>
               <div>
-                <span className="text-sm font-bold">{item.title}</span>
+                <span className="text-sm font-bold line-clamp-1">{item.title}</span>
               </div>
               <div>
-                <span className="text-xs">{item.summary}</span>
+                <span className="text-xs line-clamp-2">{item.summary}</span>
               </div>
               <div className="flex flex-row gap-2">
                 <Image src="/calendar.svg" alt="News" width={16} height={16} />
