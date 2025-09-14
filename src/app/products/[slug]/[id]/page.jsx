@@ -46,9 +46,7 @@ export default async function Product({ params }) {
     data = await res.json();
     let breadcrumpTitle = data.product.group + " " + data.product.feature
     BreadCrumbData.push(breadcrumpTitle)
-    console.log('====================================');
-    console.log(product);
-    console.log('====================================');
+
   } catch (error) {
     console.error("Error fetching product data:", error);
   }
