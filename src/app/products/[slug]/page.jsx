@@ -1,15 +1,13 @@
-
 import Category from "../../Components/Home/Category";
 import BreadCrumb from "../../Components/BreadCrumb";
 import Image from "next/image";
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import { apiUrl } from "@/lib/api";
-import { fallbackImage } from '@/lib/constant';
+import { fallbackImage } from "@/lib/constant";
+import ProductsGrid from "@/app/Components/Products/ProductsGrid";
 
 // Server component: receives params from Next.js
 export default async function Products({ params }) {
-
-  
   // const slug = params.slug;
   const { slug } = await params;
   const slugMap = {
@@ -21,9 +19,25 @@ export default async function Products({ params }) {
     powder: 6,
     doogh: 7,
     icecream: 8,
-    curd: 9
+    curd: 9,
   };
+
+//! Temporary breadcrump slug
+const slugPersian = {
+  1: "شیر",
+  2: "ماست",
+  3: "خامه",
+  4: "کره",
+  5: "پنیر",
+  6: "پودری",
+  7: "دوغ",
+  8: "بستنی",
+  9: "کشک"
+};
+
+
   const id = slugMap[slug] || null;
+  const PersianSlug = slugPersian[id] || null
 
   let products = [];
   if (id) {
@@ -83,51 +97,18 @@ export default async function Products({ params }) {
         title: "محصول 8",
         fat: 80,
         image: "/test.png",
-      }
+      },
     ];
   }
 
   var BreadCrumbData = ["خانه", "محصولات"];
+  BreadCrumbData.push(PersianSlug)
   // BreadCrumbData = BreadCrumbData.push(slug)
   return (
     <div className="flex flex-col bg-slate-50">
       <BreadCrumb path={BreadCrumbData} />
       <Category />
-      <div className="flex justify-center items-center my-10 ">
-        <div className="grid grid-cols-5 gap-10">
-          {products.map((product) => (
-            <div key={product.id} className="flex flex-col bg-white shadow hover:shadow-lg rounded-2xl w-60 cursor-pointer">
-              <div className="flex flex-1 p-2 justify-center items-center">
-                <Image
-                  src={product.image ? product.image : fallbackImage}
-                  alt={product.product_name}
-                  width={300}
-                  height={250}
-                  className="bg-slate-50 rounded-xl h-60 w-auto"
-                />
-              </div>
-              <div className="flex flex-row justify-center m-3">
-                <div className="flex flex-col flex-1 gap-1">
-                  <div className="flex flex-row justify-center items-center gap-1">
-                    
-                    <span className="font-bold text-sm">{product.group}</span>
-                    <span className="font-bold text-sm">{product.subgroup}</span>
-                    <span className="text-sm">{product.feature}</span>
-
-                  </div>
-
-                  {/* <span className="text-xs">چربی: {product.fat}</span> */}
-                </div>
-                {/* <div className="flex flex-col">
-                  <div className="bg-[#e7edf6] rounded-xl shadow p-4 cursor-pointer aspect-square max-h-12 hover:bg-[#b7edf3]">
-                    <MdOutlineArrowBackIos className="text-black" />
-                  </div>
-                </div> */}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <ProductsGrid data={products} slug={slug} />
     </div>
   );
 }
