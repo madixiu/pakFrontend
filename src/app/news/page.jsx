@@ -8,12 +8,15 @@ import {
   MdOutlineArrowBackIos,
 } from "react-icons/md";
 export default async function News() {
-
-  const NewsData = await fetch(apiUrl(`/api/news/`) , {
-    cache: "no-store"
-  })
-    .then(response => response.json())
-    .catch(error => console.error("Error fetching news:", error));
+  let NewsData = [];
+  try {
+    const response = await fetch(apiUrl(`/api/news/`), {
+      cache: "no-store"
+    });
+    NewsData = await response.json();
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
 
   return (
     <div>
@@ -67,71 +70,12 @@ export default async function News() {
       </div>
 
       {/* //?Archive mode  */}
-      <Archive data={NewsData}/>
+      <Archive data={NewsData || []}/>
     </div>
   );
 }
 
 async function Archive({ data }) {
-  const news = [
-    {
-      id: 1,
-      title: "خبر 1",
-      summary: 10,
-      image: "/newsTest.png",
-      date: "۲۱ فروردین ۱۴۰۴",
-    },
-    {
-      id: 2,
-      title: "خبر 2",
-      summary: 20,
-      image: "/newsTest.png",
-      date: "۲۱ فروردین ۱۴۰۴",
-    },
-    {
-      id: 3,
-      title: "خبر 3",
-      summary: 30,
-      image: "/newsTest.png",
-      date: "۲۱ فروردین ۱۴۰۴",
-    },
-    {
-      id: 4,
-      title: "خبر 4",
-      summary: 40,
-      image: "/newsTest.png",
-      date: "۲۱ فروردین ۱۴۰۴",
-    },
-    {
-      id: 5,
-      title: "خبر 5",
-      summary: 50,
-      image: "/newsTest.png",
-      date: "۲۱ فروردین ۱۴۰۴",
-    },
-    {
-      id: 6,
-      title: "خبر 6",
-      summary: 60,
-      image: "/newsTest.png",
-      date: "۲۱ فروردین ۱۴۰۴",
-    },
-    {
-      id: 7,
-      title: "خبر 7",
-      summary: 70,
-      image: "/newsTest.png",
-      date: "۲۱ فروردین ۱۴۰۴",
-    },
-    {
-      id: 8,
-      title: "خبر 8",
-      summary: 80,
-      image: "/newsTest.png",
-      date: "۲۱ فروردین ۱۴۰۴",
-    },
-  ];
-
   return (
     <div className="flex flex-col items-center justify-center mt-20">
       <div className="flex justify-between items-st flex-row  w-[80%]">
@@ -145,7 +89,7 @@ async function Archive({ data }) {
       </div>
       <div className="grid grid-cols-4 gap-15 my-20 w-[80%]">
         {data.map((item) => (
-          <div className="flex flex-col justify-center items-center gap-2 rounded-2xl hover:shadow cursor-pointer">
+          <div key={item.id} className="flex flex-col justify-center items-center gap-2 rounded-2xl hover:shadow cursor-pointer">
             <Image src={item.image ? item.image : fallbackImage } alt={item.title} width={300} height={100} className="rounded-xl w-full aspect-[16/10]"/>
             <div className="flex flex-col w-full gap-5 p-2">
               <div className="bg-[#e7edf6] rounded-xl py-1 px-4 shadow w-fit">

@@ -22,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   // const isRTL = "rtl";
   return (
-    <html lang="en" dir={"rtl"}>
+    <html lang="fa" dir={"rtl"}>
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
