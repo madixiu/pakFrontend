@@ -6,7 +6,7 @@ import History from "./Components/Home/History";
 import New from "./Components/Home/New";
 import Products from "./Components/Home/Products";
 import Prizes from "./Components/Home/Prizes";
-import News from "./Components/Home/News";
+import HomeNews from "./Components/Home/News";
 
 export default function Home() {
   return (
@@ -36,7 +36,7 @@ export default function Home() {
         <New />
         <Products />
         <Prizes />
-        <News />
+        <HomeNews />
       </main>
     </div>
   );

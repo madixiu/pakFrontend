@@ -2,18 +2,21 @@ import BreadCrumb from "../Components/BreadCrumb";
 import Image from "next/image";
 import { apiUrl } from "@/lib/api";
 import { fallbackImage } from "@/lib/constant";
-
+import { isoToJalali } from "@/lib/utils";
 import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIos,
 } from "react-icons/md";
 export default async function News() {
   let NewsData = [];
+  let FirstPost = {};
   try {
     const response = await fetch(apiUrl(`/api/news/`), {
       cache: "no-store"
     });
     NewsData = await response.json();
+    FirstPost = NewsData[0] || {};
+    NewsData = NewsData.slice(1);
   } catch (error) {
     console.error("Error fetching news:", error);
   }
@@ -33,31 +36,30 @@ export default async function News() {
         </div>
         <div className="flex flex-row justify-start items-center my-15 relative w-[60%] cursor-pointer">
           <Image
-            src="/newsTest.png"
-            alt="News"
+            src={FirstPost.image ? FirstPost.image : fallbackImage }
+            alt={FirstPost.title}
             width={500}
             height={300}
-            className="rounded-2xl"
+            className="rounded-2xl z-50 hover:z-0 duration-300"
           />
-          <div className="absolute left-[100px] transition-transform duration-300 ease-in-out hover:-translate-x-[50px]">
+          <div className="absolute right-[450px] transition-transform duration-300 ease-in-out hover:-translate-x-[50px] z-10 hover:z-60 w-fit">
             <div className="flex flex-col p-5 bg-white shadow-2xl rounded-2xl gap-5 justify-around h-[80%]">
               <div className="bg-[#e7edf6] rounded-xl py-1 px-4 shadow w-fit">
                 <span className="text-xs">اخبار</span>
               </div>
-              <div>
-                <span className="font-bold">
-                  فواید شیر غنی‌شده برای سلامتی کودکان
-                </span>
-              </div>
               <div className="max-w-[90%]">
-                <span className="text-xs">
-                  شیر غنی‌شده پاک با ویتامین‌ها و مواد معدنی، انتخابی ایده‌آل
-                  برای رشد و سلامت کودکان است. در این ...
+                <span className="font-bold">
+                  {FirstPost.title}
                 </span>
               </div>
-              <div className="flex flex-row gap-2">
+              <div className="max-w-[80%]">
+                <span className="text-xs  line-clamp-2">
+                  {FirstPost.summary}
+                </span>
+              </div>
+              <div className="flex flex-row gap-2 w-fit">
                 <Image src="/calendar.svg" alt="News" width={16} height={16} />
-                <span className="text-xs">۲۱ فروردین ۱۴۰۴</span>
+                <span className="text-xs">{isoToJalali(FirstPost.published_date)}</span>
               </div>
               <div className="flex justify-end items-center">
                 <div className="bg-[#ff5d00] rounded-xl shadow-xs p-4 cursor-pointer aspect-square max-h-12 hover:bg-[#ff5d60] w-fit">
@@ -103,7 +105,9 @@ async function Archive({ data }) {
               </div>
               <div className="flex flex-row gap-2">
                 <Image src="/calendar.svg" alt="News" width={16} height={16} />
-                <span className="text-xs">۲۱ فروردین ۱۴۰۴</span>
+                <span className="text-xs">
+                  {isoToJalali(item.published_date)}
+                </span>
               </div>
             </div>
           </div>

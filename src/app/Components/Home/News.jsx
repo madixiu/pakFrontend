@@ -1,8 +1,16 @@
+"use client";
 import { GoArrowUpLeft, GoArrowUpRight } from "react-icons/go";
 import { BiCalendar } from "react-icons/bi";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-function News() {
+
+function HomeNews() {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/news`);
+  };
   const data = {
     news: [
       {
@@ -56,7 +64,10 @@ function News() {
           </div>
           <div className="flex justify-center items-center">
             <button className="bg-white text-black px-5 py-3 rounded-2xl hover:bg-neutral-200 cursor-pointer">
-              <div className="flex flex-row justify-center items-center gap-1">
+              <div
+                className="flex flex-row justify-center items-center gap-1"
+                onClick={() => {handleClick()}}
+              >
                 <span>مشاهده</span>
                 <GoArrowUpLeft />
               </div>
@@ -136,4 +147,4 @@ function News() {
   );
 }
 
-export default News;
+export default HomeNews;
