@@ -1,3 +1,6 @@
+"use client"; // Ensure this component is treated as a client component
+
+import { useEffect, useState } from "react";
 import BreadCrumb from "../Components/BreadCrumb";
 import Image from "next/image";
 import { apiUrl } from "@/lib/api";
@@ -7,19 +10,30 @@ import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIos,
 } from "react-icons/md";
-export default async function News() {
-  let NewsData = [];
-  let FirstPost = {};
-  try {
-    const response = await fetch(apiUrl(`/api/news/`), {
-      cache: "no-store"
-    });
-    NewsData = await response.json();
-    FirstPost = NewsData[0] || {};
-    NewsData = NewsData.slice(1);
-  } catch (error) {
-    console.error("Error fetching news:", error);
-  }
+import { useRouter } from "next/navigation";
+
+export default function News() {
+  const [NewsData, setNewsData] = useState([]);
+  const [FirstPost, setFirstPost] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(apiUrl(`/api/news/`), {
+          cache: "no-store",
+        });
+        const data = await response.json();
+        setFirstPost(data[0] || {});
+        setNewsData(data.slice(1));
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array to run once on mount
+
+  if (!FirstPost.id) return null;
 
   return (
     <div>
@@ -36,7 +50,7 @@ export default async function News() {
         </div>
         <div className="flex flex-row justify-start items-center my-15 relative w-[60%] cursor-pointer">
           <Image
-            src={FirstPost.image ? FirstPost.image : fallbackImage }
+            src={FirstPost.image ? FirstPost.image : fallbackImage}
             alt={FirstPost.title}
             width={500}
             height={300}
@@ -48,18 +62,18 @@ export default async function News() {
                 <span className="text-xs">اخبار</span>
               </div>
               <div className="max-w-[90%]">
-                <span className="font-bold">
-                  {FirstPost.title}
-                </span>
+                <span className="font-bold">{FirstPost.title}</span>
               </div>
               <div className="max-w-[80%]">
-                <span className="text-xs  line-clamp-2">
+                <span className="text-xs line-clamp-2">
                   {FirstPost.summary}
                 </span>
               </div>
               <div className="flex flex-row gap-2 w-fit">
                 <Image src="/calendar.svg" alt="News" width={16} height={16} />
-                <span className="text-xs">{isoToJalali(FirstPost.published_date)}</span>
+                <span className="text-xs">
+                  {isoToJalali(FirstPost.published_date)}
+                </span>
               </div>
               <div className="flex justify-end items-center">
                 <div className="bg-[#ff5d00] rounded-xl shadow-xs p-4 cursor-pointer aspect-square max-h-12 hover:bg-[#ff5d60] w-fit">
@@ -72,12 +86,17 @@ export default async function News() {
       </div>
 
       {/* //?Archive mode  */}
-      <Archive data={NewsData || []}/>
+      <Archive data={NewsData || []} />
     </div>
   );
 }
 
-async function Archive({ data }) {
+function Archive({ data }) {
+  const router = useRouter();
+  function handleClick(id) {
+    router.push(`/news/${id}`);
+  }
+
   return (
     <div className="flex flex-col items-center justify-center mt-20">
       <div className="flex justify-between items-st flex-row  w-[80%]">
@@ -86,19 +105,33 @@ async function Archive({ data }) {
         </span>
         <div className="flex flex-row gap-5">
           <span className="hover:text-[#ff5d00] cursor-pointer">جدیدترین</span>
-          <span className="hover:text-[#ff5d00] cursor-pointer">پر بازدید ترین</span>
+          <span className="hover:text-[#ff5d00] cursor-pointer">
+            پر بازدید ترین
+          </span>
         </div>
       </div>
       <div className="grid grid-cols-4 gap-15 my-20 w-[80%]">
         {data.map((item) => (
-          <div key={item.id} className="flex flex-col justify-center items-center gap-2 rounded-2xl hover:shadow cursor-pointer">
-            <Image src={item.image ? item.image : fallbackImage } alt={item.title} width={300} height={100} className="rounded-xl w-full aspect-[16/10]"/>
+          <div
+            key={item.id}
+            className="flex flex-col justify-center items-center gap-2 rounded-2xl hover:shadow cursor-pointer"
+            onClick={() => handleClick(item.id)}
+          >
+            <Image
+              src={item.image ? item.image : fallbackImage}
+              alt={item.title}
+              width={300}
+              height={100}
+              className="rounded-xl w-full aspect-[16/10]"
+            />
             <div className="flex flex-col w-full gap-5 p-2">
               <div className="bg-[#e7edf6] rounded-xl py-1 px-4 shadow w-fit">
                 <span className="text-xs">اخبار</span>
               </div>
               <div>
-                <span className="text-sm font-bold line-clamp-1">{item.title}</span>
+                <span className="text-sm font-bold line-clamp-1">
+                  {item.title}
+                </span>
               </div>
               <div>
                 <span className="text-xs line-clamp-2">{item.summary}</span>

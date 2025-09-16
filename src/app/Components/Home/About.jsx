@@ -8,7 +8,7 @@ function About() {
           <span className="font-light text-sm">درباره ما</span>
         </div>
         <div className="items-start w-full">
-          <span  className="text-3xl font-extrabold">شرکت لبنیات و بستنی</span>
+          <span className="text-3xl font-extrabold">شرکت لبنیات و بستنی</span>
         </div>
         <div className="items-start w-full">
           <span className="text-3xl font-bold">پاستوریزه پاک</span>
