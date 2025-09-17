@@ -1,12 +1,16 @@
 // app/components/NewsLayout.tsx
 
 import Image from "next/image";
-import { apiUrl } from "@/lib/api";
+import { apiUrl, ImgUrl } from "@/lib/api";
 import { fallbackImage } from "@/lib/constant";
 import { isoToJalali } from "@/lib/utils";
+// import HTMLReactParser from "html-react-parser";
+import parse from "html-react-parser";
+import NewsDetailAside from "@/app/Components/News/NewsDetailAside";
 
-export default async function NewsLayout({params}) {
+export default async function NewsLayout({ params }) {
   let data = [];
+  let recentNews = [];
   const id = await params.id;
   try {
     const res = await fetch(apiUrl(`/api/news/${id}/`), {
@@ -14,6 +18,8 @@ export default async function NewsLayout({params}) {
       cache: "no-store",
     });
     data = await res.json();
+    recentNews = data.recent_news;
+    data = data.news;
     // let breadcrumpTitle = data.product.group + " " + data.product.feature;
     // BreadCrumbData.push(breadcrumpTitle);
   } catch (error) {
@@ -33,126 +39,61 @@ export default async function NewsLayout({params}) {
             height={400}
             className="w-full aspect-[16/9] object-cover"
           />
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-            <p className="text-sm text-white">Travel</p>
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-5">
+            {/* <p className="text-sm text-white">Travel</p> */}
             <h2 className="text-xl font-bold text-white shadow-xl">
-             {data.title}
+              {data.title}
             </h2>
-            <p className="text-xs text-gray-200 mt-2">
+            <p className="text-xs text-gray-200 mt-2 shadow-xl">
               {isoToJalali(data.published_date)}
             </p>
           </div>
         </div>
 
         {/* Article Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex justify-center">
           {/* Article 1 */}
-          <div className="rounded-lg border overflow-hidden shadow">
-            <Image
-              src="/images/car.jpg"
-              alt="Car show"
-              width={400}
-              height={200}
-              className="w-full h-40 object-cover"
-            />
-            <div className="p-3">
-              <p className="text-sm text-gray-500">Business</p>
-              <h3 className="font-semibold">
-                Before New York Auto Show, Cars Take Their Own Star Turns
-              </h3>
-              <p className="text-xs text-gray-400 mt-1">
-                Miracle Septimus · 1 min ago
-              </p>
-            </div>
+          <div className="rounded-lg  overflow-hidden shadow-xs mt-10 w-full leading-10">
+            {parse(data.content)}
           </div>
 
           {/* Article 2 */}
-          <div className="rounded-lg border overflow-hidden shadow">
-            <Image
-              src="/images/oil.jpg"
-              alt="Oil market"
-              width={400}
-              height={200}
-              className="w-full h-40 object-cover"
-            />
-            <div className="p-3">
-              <p className="text-sm text-gray-500">Politics</p>
-              <h3 className="font-semibold">
-                U.S. Risks Roiling Oil Markets in Trying to Tighten Sanctions
-              </h3>
-              <p className="text-xs text-gray-400 mt-1">
-                Zain Dorwart · 5 min ago
-              </p>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Sidebar */}
-      <aside className="w-full lg:w-auto flex flex-col gap-6">
-        {/* Trending News */}
-        <div className="rounded-lg border p-4 shadow">
-          <h3 className="font-bold text-lg mb-3">Trending News</h3>
+      <div className="w-full lg:w-[30%] flex">
+        <NewsDetailAside recentNews={recentNews} />
+      </div>
+      {/* <aside className="w-full lg:w-[30%] flex flex-col gap-6">
+        <div className="rounded-xl p-4 shadow border border-slate-50">
+          <h3 className="font-bold text-lg mb-3">آخرین اخبار</h3>
           <div className="flex flex-col gap-3">
-            {[
-              {
-                category: "Sport",
-                title:
-                  "Tiger Woods, in a Stirring Return to the Top, Captures the Masters at 43",
-              },
-              {
-                category: "Health",
-                title: "10 Years After an Exercise Study, Benefits Persist",
-              },
-              {
-                category: "Business",
-                title:
-                  "Buying a Tesla Seems Pretty Easy. But There Are a Few Things to Know.",
-              },
-              {
-                category: "Food",
-                title: "What to cook this week, Top 15 Breakfast.",
-              },
-              {
-                category: "Sport",
-                title: "Roger Federer’s 101 Titles: By the Numbers",
-              },
-              {
-                category: "Health",
-                title:
-                  "Gene-Edited Babies: What a Chinese Scientist Told an American Mentor",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="flex gap-2 items-start">
-                <div className="w-14 h-14 bg-gray-200 rounded-md"></div>
-                <div>
-                  <p className="text-xs text-gray-500">{item.category}</p>
-                  <p className="text-sm font-medium">{item.title}</p>
+            {recentNews.map((item) => (
+              <div
+                key={item.id}
+                className="flex gap-2 items-center justify-start  hover:shadow rounded-2xl cursor-pointer py-5"
+              >
+                <div className="w-38 aspect-[16/10] bg-gray-200 rounded-md ms-2">
+                  <Image
+                    src={item.image ? ImgUrl(item.image) : fallbackImage}
+                    alt={item.title}
+                    width={150}
+                    height={150}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+                <div className="flex flex-col w-[70%] gap-2">
+                  <p className="text-sm font-bold">{item.title}</p>
+                  <p className="text-sm text-clip line-clamp-2">
+                    {item.summary}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        {/* Trending Sections */}
-        <div className="rounded-lg border p-4 shadow">
-          <h3 className="font-bold text-lg mb-3">Trending Sections</h3>
-          <ul className="flex flex-col gap-2 text-sm">
-            <li className="flex justify-between">
-              <span>Politics</span>{" "}
-              <span className="text-gray-500">60,250 Views</span>
-            </li>
-            <li className="flex justify-between">
-              <span>Business</span>{" "}
-              <span className="text-gray-500">45,000 Views</span>
-            </li>
-            <li className="flex justify-between">
-              <span>Sports</span>{" "}
-              <span className="text-gray-500">24,500 Views</span>
-            </li>
-          </ul>
-        </div>
-      </aside>
+      </aside> */}
     </div>
   );
 }

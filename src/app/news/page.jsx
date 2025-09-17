@@ -13,6 +13,13 @@ import {
 import { useRouter } from "next/navigation";
 
 export default function News() {
+
+    const router = useRouter();
+
+  function handleClick(id) {
+    router.push(`/news/${id}`);
+  }
+
   const [NewsData, setNewsData] = useState([]);
   const [FirstPost, setFirstPost] = useState({});
 
@@ -39,7 +46,7 @@ export default function News() {
     <div>
       <BreadCrumb path={["خانه", "اخبار"]} />
       {/* //? Main News Div */}
-      <div className="flex justify-center flex-col items-center">
+      <div className="flex justify-center flex-col items-center" onClick={() => handleClick(FirstPost.id)}>
         <div className="py-10">
           <span className="flex justify-center items-center font-bold text-3xl">
             اخبار
@@ -93,6 +100,7 @@ export default function News() {
 
 function Archive({ data }) {
   const router = useRouter();
+
   function handleClick(id) {
     router.push(`/news/${id}`);
   }
