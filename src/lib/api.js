@@ -1,11 +1,14 @@
 // lib/api.js
 // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-const baseUrl = 'http://127.0.0.1:8000';
-// const baseUrl = 'http://localhost:8000';
+// const baseUrl = 'http://127.0.0.1:8000';
+// const baseUrl = 'http://45.138.135.109';
+
+// For API calls - use absolute URL
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://127.0.0.1:8000';
 
 export const apiUrl = (path) => {
     return `${baseUrl}${path}`;
 };
 export const ImgUrl = (path) => {
-    return `${baseUrl}${path}/`;
+    return `${baseUrl}${path}`;
 };
