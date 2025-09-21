@@ -16,7 +16,7 @@ export default function Home() {
         <div className="relative">
           <Banner />
           <Category />
-          <Image
+          {/* <Image
             src="/drop1.png"
             alt="Description of the image"
             width={500}
@@ -29,7 +29,7 @@ export default function Home() {
             width={250}
             height={250}
             className="absolute left-[0] bottom-[440] rotate-[-0deg]"
-          />
+          /> */}
           <About />
         </div>
         <History />

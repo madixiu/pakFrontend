@@ -13,7 +13,7 @@ function About() {
         <div className="items-start w-full">
           <span className="text-3xl font-bold">پاستوریزه پاک</span>
         </div>
-        <div className="mt-5">
+        <div className="mt-5 w-full">
           <span className="text-justify leading-7">
             ﺷــﺮﻛﺖ ﻟﺒﻨﯿــﺎت ﭘﺎﺳــﺘﻮرﯾﺰه ﭘــﺎک در ﺳــﺎل ﺗﺤــﺖ ﻟﯿﺴــﺎﻧﺲ ﺷــﺮﻛﺖ
             ﻓﻮرﻣﻮﺳــﺖ آﻣﺮﻳـﮑﺎ و ﺑـﺎ ﻧـﺎم ﺗﺠـﺎری ﭘـﺎک در ﺗﻬـﺮان . ﺗﺎﺳـﯿﺲ ﮔﺮدﻳـﺪ

@@ -191,19 +191,19 @@ const useOutsideClick = (callback) => {
 
         <div className={`absolute bg-white border border-gray-200 shadow-xl rounded-xl top-20 right-5 p-1 z-50 transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4'}`}>
           <div className="flex flex-col gap-1">
-            <div className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl">
+            <div className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl" onClick={() => handleClick("/")}>
               <RiHome5Line />
               <span>صفحه اصلی</span>
             </div>
-            <div className="flex flex-row justify-center items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl">
+            <div className="flex flex-row justify-center items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl" onClick={() => handleClick("/news")}>
               <PiRadio />
               <span>اخبار و اطلاعیه‌ها</span>
             </div>
-            <div className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl">
+            <div className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl" onClick={() => handleClick("/about")}>
               <MdFormatListBulleted />
               <span>درباره ما</span>
             </div>
-            <div className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl">
+            <div className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl" onClick={() => handleClick("/contact")}>
               <BsTelephone />
               <span> تماس با ما</span>
             </div>

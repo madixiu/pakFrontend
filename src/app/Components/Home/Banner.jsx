@@ -6,12 +6,28 @@ import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIos,
 } from "react-icons/md";
-
+import { useRouter } from "next/navigation";
 function Banner() {
+  const router = useRouter();
   const slides = [
-    { image: "/Banner/1.jpg", title: "کره پاستوریزه پاک" },
-    { image: "/Banner/2.jpg", title: "خامه فرادما و هموژنیزه پاک" },
-    { image: "/Banner/3.jpg", title: "شیر کاکائو کم چرب پاک" },
+    {
+      image: "/Banner/1.jpg",
+      title: "کره پاستوریزه پاک",
+      id: "16",
+      slug: "butter",
+    },
+    {
+      image: "/Banner/2.jpg",
+      title: "خامه فرادما و هموژنیزه پاک",
+      id: "366",
+      slug: "cream",
+    },
+    {
+      image: "/Banner/3.jpg",
+      title: "شیر کاکائو کم چرب پاک",
+      id: "25",
+      slug: "milk",
+    },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -82,7 +98,7 @@ function Banner() {
       {/* Overlay Content - fade only (no translate/position change) */}
       <div
         id="bannerContent"
-        className="absolute top-0 right-0 w-[50%] h-full flex items-center justify-center p-4 pointer-events-none"
+        className="absolute top-0 right-0 w-[50%] h-full flex items-center justify-center p-4"
       >
         {/* previous (leaving) overlay -> fades out */}
         {prevSlide !== null && (
@@ -99,6 +115,11 @@ function Banner() {
               className={`bg-white text-black px-5 py-3 rounded-2xl hover:bg-neutral-200 cursor-pointer transition-opacity duration-400 ${
                 prevFading ? "opacity-50" : "opacity-100"
               }`}
+              onClick={() =>
+                router.push(
+                  `/products/${slides[currentSlide].slug}/${slides[currentSlide].id}`
+                )
+              } // Updated to use dynamic slug and id
             >
               <div className="flex flex-row justify-center items-center gap-1">
                 <span>مشاهده</span>
@@ -123,6 +144,11 @@ function Banner() {
               currentVisible ? "opacity-100" : "opacity-0"
             }`}
             style={{ transitionDelay: currentVisible ? "120ms" : "0ms" }}
+            onClick={() =>
+              router.push(
+                `/products/${slides[currentSlide].slug}/${slides[currentSlide].id}`
+              )
+            } // Updated to use dynamic slug and id
           >
             <div className="flex flex-row justify-center items-center gap-1">
               <span>مشاهده</span>

@@ -8,8 +8,9 @@ import {
 import { FiYoutube, FiMail } from "react-icons/fi";
 import { SlLocationPin } from "react-icons/sl";
 import { GrMicrophone } from "react-icons/gr";
-
 import Image from "next/image";
+import FooterNav from "./FooterNav";
+
 function Footer() {
   return (
     <footer className="flex flex-1 justify-center">
@@ -99,44 +100,7 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-2 flex-1">
-            <div>
-              <span>دسترسی سریع</span>
-            </div>
-            <div className="w-10 h-1 bg-amber-600 rounded-3xl"></div>
-            <div className="flex flex-col gap-4 mt-10">
-              <div className="flex flex-row gap-3 items-center">
-                <span className="text-shadow-2xs text-xs font-bold hover:text-[#285caa] cursor-pointer">
-                  صفحه اصلی
-                </span>
-              </div>
-              <div className="flex flex-row gap-3 items-center">
-                <span className="text-shadow-2xs text-xs font-bold hover:text-[#285caa] cursor-pointer">
-                  دسته بندی محصولات
-                </span>
-              </div>
-              <div className="flex flex-row gap-3 items-center">
-                <span className="text-shadow-2xs text-xs font-bold hover:text-[#285caa] cursor-pointer">
-                  اخبار و اطلاعیه ها
-                </span>
-              </div>
-              <div className="flex flex-row gap-3 items-center">
-                <span className="text-shadow-2xs text-xs font-bold hover:text-[#285caa] cursor-pointer">
-                  درباره لبنیات پاک
-                </span>
-              </div>
-              <div className="flex flex-row gap-3 items-center">
-                <span className="text-shadow-2xs text-xs font-bold hover:text-[#285caa] cursor-pointer">
-                  تماس با ما
-                </span>
-              </div>
-              <div className="flex flex-row gap-3 items-center">
-                <span className="text-shadow-2xs text-xs font-bold hover:text-[#285caa] cursor-pointer">
-                  نمایندگی ها
-                </span>
-              </div>
-            </div>
-          </div>
+          <FooterNav />
         </div>
         <div className="bg-[#285caa] flex lg:flex-row flex-col mt-5 rounded-2xl p-5 justify-between">
           <div className="flex flex-row gap-2">
