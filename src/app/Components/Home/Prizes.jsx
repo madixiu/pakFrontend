@@ -8,27 +8,27 @@ function Prizes() {
     {
       id: 1,
       src: "/Home/Certificates/cert1.png",
-      alt: "گواهینامه 1",
+      alt: "ISO 9001",
     },
     {
       id: 2,
       src: "/Home/Certificates/cert2.png",
-      alt: "گواهینامه 2",
+      alt: "ISO 10002",
     },
     {
       id: 3,
-      src: "/Home/Certificates/cert3.png",
-      alt: "گواهینامه 3",
+      src: "/Home/Certificates/cert5.png",
+      alt: "ISO 14001",
     },
     {
       id: 4,
       src: "/Home/Certificates/cert4.png",
-      alt: "گواهینامه 4",
+      alt: "ISO 10004",
     },
     {
       id: 5,
-      src: "/Home/Certificates/cert5.png",
-      alt: "گواهینامه 5",
+      src: "/Home/Certificates/cert3.png",
+      alt: "حلال",
     },
   ];
   return (

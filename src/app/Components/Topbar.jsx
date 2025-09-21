@@ -95,30 +95,11 @@ const useOutsideClick = (callback) => {
                   />
                   <FaSearch className="absolute rounded-lg size-6 bg-neutral-100 p-1 left-2 top-1/2 transform -translate-y-1/2 text-gray-500" />
                 </div>
-                {/* <div className="flex flex-row gap-2">
-                  <span className="text-gray-700">صدای مشتری:</span>
-                  <div>
-                    <span className="text-black font-semibold">
-                      021-9606-0946
-                    </span>
-                  </div>
-                </div> */}
-                {/* Left buttons */}
-                {/* <div className="flex items-center gap-4">
-                  <button className="flex items-center gap-2 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
-                    <span>نمایندگی ها</span>
-                    <FaStore />
-                  </button>
-                  <button className="flex items-center gap-2 bg-neutral-100 hover:bg-neutral-200 p-3 rounded-xl cursor-pointer">
-                    <span>خرید محصولات</span>
-                    <FaShoppingCart />
-                  </button>
-                </div> */}
               </div>
               {/* Bottom nav */}
               <div className="w-full flex justify-center gap-6 text-gray-700">
                 <div className="relative">
-                  <button className="bg-[#2d60a5] text-white rounded-xl p-3 flex items-center gap-1">
+                  {/* <button className="bg-[#2d60a5] text-white rounded-xl p-3 flex items-center gap-1">
                     دسته بندی ها
                     <svg
                       className="w-3 h-3"
@@ -133,46 +114,46 @@ const useOutsideClick = (callback) => {
                         d="M19 9l-7 7-7-7"
                       />
                     </svg>
-                  </button>
+                  </button> */}
                   {/* dropdown could go here */}
                 </div>
                 <div
-                  className="flex flex-row gap-1 items-center cursor-pointer hover:text-[#2d60a5] hover:bg-neutral-100 rounded-xl"
+                  className="flex flex-row gap-1 items-center cursor-pointer hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/")}
                 >
                   <RiHome5Line />
                   <span>صفحه اصلی</span>
                 </div>
-                <div
+                {/* <div
                   className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5]"
                   onClick={() => handleClick("/")}
                 >
                   <MdOutlineFactory />
                   کارخانه و خدمات
-                </div>
+                </div> */}
                 <div
-                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5]"
+                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/news")}
                 >
                   <PiRadio />
                   <span>اخبار و اطلاعیه‌ها</span>
                 </div>
                 <div
-                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5]"
+                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/")}
                 >
                   <PiBagSimpleBold />
-                  <span>استخدام</span>
+                  <span>امور مجامع و سهام</span>
                 </div>
                 <div
-                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5]"
+                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/about")}
                 >
                   <MdFormatListBulleted />
                   <span>درباره ما</span>
                 </div>
                 <div
-                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5]"
+                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/contact")}
                 >
                   <BsTelephone />
