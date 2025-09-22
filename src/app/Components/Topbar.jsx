@@ -86,7 +86,8 @@ const useOutsideClick = (callback) => {
           <div className="flex justify-center items-center">
             <div className="flex flex-col gap-6 justify-center items-center">
               {/* Phone & search */}
-              <div className="w-full flex items-start gap-7">
+              {/* //! SEARCH BAR NOT FUNCTIONAL */}
+              {/* <div className="w-full flex items-start gap-7">
                 <div className="relative">
                   <input
                     type="text"
@@ -95,7 +96,7 @@ const useOutsideClick = (callback) => {
                   />
                   <FaSearch className="absolute rounded-lg size-6 bg-neutral-100 p-1 left-2 top-1/2 transform -translate-y-1/2 text-gray-500" />
                 </div>
-              </div>
+              </div> */}
               {/* Bottom nav */}
               <div className="w-full flex justify-center gap-6 text-gray-700">
                 <div className="relative">
@@ -118,11 +119,11 @@ const useOutsideClick = (callback) => {
                   {/* dropdown could go here */}
                 </div>
                 <div
-                  className="flex flex-row gap-1 items-center cursor-pointer hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
+                  className="flex flex-row gap-1 items-start justify-center cursor-pointer hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/")}
                 >
-                  <RiHome5Line />
-                  <span>صفحه اصلی</span>
+                  <RiHome5Line size={16}/>
+                  <span className="font-bold">صفحه اصلی</span>
                 </div>
                 {/* <div
                   className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5]"
@@ -135,29 +136,29 @@ const useOutsideClick = (callback) => {
                   className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/news")}
                 >
-                  <PiRadio />
-                  <span>اخبار و اطلاعیه‌ها</span>
+                  <PiRadio size={16}/>
+                  <span className="font-bold">اخبار و اطلاعیه‌ها</span>
                 </div>
                 <div
                   className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
-                  onClick={() => handleClick("/")}
+                  // onClick={() => handleClick("/")}
                 >
-                  <PiBagSimpleBold />
-                  <span>امور مجامع و سهام</span>
+                  <PiBagSimpleBold size={16}/>
+                  <span className="text-slate-400">امور مجامع و سهام</span>
                 </div>
                 <div
                   className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/about")}
                 >
-                  <MdFormatListBulleted />
-                  <span>درباره ما</span>
+                  <MdFormatListBulleted size={16}/>
+                  <span className="font-bold">درباره ما</span>
                 </div>
                 <div
-                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
+                  className="flex flex-row gap-1 cursor-pointer items-center justify-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/contact")}
                 >
-                  <BsTelephone />
-                  <span> تماس با ما</span>
+                  <BsTelephone size={16}/>
+                  <span className="font-bold"> تماس با ما</span>
                 </div>
               </div>
             </div>

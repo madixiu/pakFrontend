@@ -40,7 +40,7 @@ function Prizes() {
             جوایــــــز و گواهینامه ها
           </span>
         </div>
-        <div className="flex flex-1 justify-end items-center">
+        {/* <div className="flex flex-1 justify-end items-center">
           <div className="gap-3 flex flex-row ">
             <div className="bg-[#e7edf6] rounded-xl shadow p-4 cursor-pointer aspect-square max-h-12 hover:bg-neutral-200">
               <MdOutlineArrowForwardIos />
@@ -49,7 +49,7 @@ function Prizes() {
               <MdOutlineArrowBackIos />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="flex flex-row p-5 justify-around">
         {Certificates.map((certificate) => (

@@ -3,55 +3,23 @@ import { GoArrowUpLeft, GoArrowUpRight } from "react-icons/go";
 import { BiCalendar } from "react-icons/bi";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-
-function HomeNews() {
+import { isoToJalali } from "@/lib/utils"; // Assuming you have this utility
+import { fallbackImage } from "@/lib/constant";
+import { ImgUrl } from "@/lib/api";
+function HomeNews({ data }) {
   const router = useRouter();
 
   const handleClick = () => {
     router.push(`/news`);
   };
-  const data = {
-    news: [
-      {
-        id: 1,
-        title: "فواید شیر غنی‌شده برای سلامتی کودکان",
-        description:
-          "شیر غنی‌شده پاک با ویتامین‌ها و مواد معدنی، انتخابی ایده‌آل برای رشد و سلامت کودکان است. در این ...",
-        date: "۲۱ فروردین ۱۴۰۴",
-      },
-      {
-        id: 2,
-        title: "داستان نیم قرن کیفیت با پاک",
-        description:
-          "با بیش از 50 سال تجربه، پاک چگونه به نامی قابل اعتماد در صنعت لبنیات تبدیل شد؟ نگاهی به ...",
-        date: "۲۱ فروردین ۱۴۰۴",
-      },
-    ],
-    blog: [
-      {
-        id: 1,
-        title: "راز سلامتی دستگاه گوارش",
-        description:
-          "ماست‌های پروبیوتیک پاک چگونه به بهبود سلامت گوارش کمک می‌کنند؟ در این مقاله، علم پشت این محصول را کشف کنید ...",
-        date: "۲۱ فروردین ۱۴۰۴",
-      },
-      {
-        id: 2,
-        title: "گامی به سوی تولید پایدار",
-        description:
-          "ماست‌های پروبیوتیک پاک چگونه به بهبود سلامت گوارش کمک می‌کنند؟ در این مقاله، علم پشت این محصول را کشف کنید ...",
-        date: "۲۱ فروردین ۱۴۰۴",
-      },
-      {
-        id: 3,
-        title: "معرفی پنیرهای جدید پاک: طعمی برای هر ذائقه",
-        description:
-          "از پنیرهای سنتی تا مدرن، پاک تنوعی بی‌نظیر ارائه می‌دهد. در این مقاله، جدیدترین محصولات پنیری ما را بشناسید ...",
-        date: "۲۱ فروردین ۱۴۰۴",
-      },
-    ],
-  };
+
+  if (!data) return null;
+
+  // Assuming the API returns an array of news items
+  // Split them into news and blog sections (first 2 for news, rest for blog)
+  const newsItems = data.slice(0, 2);
+  const blogItems = data.slice(2);
+
   return (
     <div className="bg-[#e7edf6] pt-10 pb-25">
       <div className="mx-40">
@@ -66,7 +34,9 @@ function HomeNews() {
             <button className="bg-white text-black px-5 py-3 rounded-2xl hover:bg-neutral-200 cursor-pointer">
               <div
                 className="flex flex-row justify-center items-center gap-1"
-                onClick={() => {handleClick()}}
+                onClick={() => {
+                  handleClick();
+                }}
               >
                 <span>مشاهده</span>
                 <GoArrowUpLeft />
@@ -76,17 +46,16 @@ function HomeNews() {
         </div>
         {/* ******************************************************** */}
         <div className="flex flex-row flex-1">
-          <div className="flex flex-col gap-10 flex-1 p-5">
-            {data.news.map((item) => (
-              <div key={item.id} className="flex-1 flex flex-row gap-2">
-                <div className="group relative overflow-hidden rounded-3xl h-fit cursor-pointer">
-                  {/* Image */}
+          <div className="flex flex-col gap-10 flex-1 p-5 cursor-pointer">
+            {newsItems.map((item) => (
+              <div key={item.id} className="flex-1 flex flex-row gap-2" onClick={() => router.push(`/news/${item.id}`)}>
+                <div className="group relative overflow-hidden rounded-3xl h-fit cursor-pointer w-[35%]">
                   <Image
-                    src="/Home/News/news1.png"
-                    alt="News Image"
+                    src={item.image ? ImgUrl(item.image) : fallbackImage} // Use API image or fallback
+                    alt={item.title}
                     width={300}
                     height={100}
-                    className="rounded-3xl transition-opacity group-hover:opacity-90"
+                    className="object-center rounded-3xl transition-opacity group-hover:opacity-90 aspect-[16/10] w-full"
                   />
 
                   {/* Semi-transparent blue overlay on hover */}
@@ -95,28 +64,27 @@ function HomeNews() {
                   {/* White circle with centered icon (appears on hover) */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="relative w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                      <GoArrowUpRight className="text-gray-800 w-5 h-5" />{" "}
+                      <GoArrowUpRight className="text-gray-800 w-5 h-5" />
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 w-[80%]">
                   <div className="bg-white rounded-xl py-1 px-4 shadow w-fit">
                     <span className="text-xs">اخبار</span>
                   </div>
                   <div>
-                    <span className="font-bold ">
-                      فواید شیر غنی‌شده برای سلامتی کودکان
-                    </span>
+                    <span className="font-bold">{item.title}</span>
                   </div>
                   <div>
                     <span className="text-sm text-[#636363]">
-                      شیر غنی‌شده پاک با ویتامین‌ها و مواد معدنی، انتخابی
-                      ایده‌آل برای رشد و سلامت کودکان است. در این ...
+                      {item.summary || item.description}
                     </span>
                   </div>
                   <div className="flex flex-row gap-2 items-center">
                     <BiCalendar color="#636363" />
-                    <span className="text-xs text-[#636363]">{item.date}</span>
+                    <span className="text-xs text-[#636363]">
+                      {isoToJalali(item.published_date)}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -124,19 +92,21 @@ function HomeNews() {
           </div>
           <div className="bg-[#F4F4F4] w-[2]"></div>
           <div className="flex flex-col gap-10 p-5 flex-1">
-            {data.blog.map((item) => (
-              <div key={item.id} className="flex flex-col gap-2">
+            {blogItems.map((item) => (
+              <div key={item.id} className="flex flex-col gap-2 cursor-pointer" onClick={() => router.push(`/news/${item.id}`)}>
                 <div>
                   <span className="font-bold">{item.title}</span>
                 </div>
                 <div>
                   <span className="text-sm text-[##636363]">
-                    {item.description}
+                    {item.summary || item.description}
                   </span>
                 </div>
                 <div className="flex flex-row gap-2 items-center">
                   <BiCalendar color="#636363" />
-                  <span className="text-xs text-[#636363]">{item.date}</span>
+                  <span className="text-xs text-[#636363]">
+                    {isoToJalali(item.published_date)}
+                  </span>
                 </div>
               </div>
             ))}

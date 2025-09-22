@@ -5,6 +5,7 @@ import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIos,
 } from "react-icons/md";
+import { fallbackImage } from "@/lib/constant";
 export default function Products() {
   const BreadCrumbData = ["خانه", "محصولات"];
   const test = [
@@ -70,8 +71,8 @@ export default function Products() {
             >
               <div className="flex flex-1 p-15 justify-center items-center">
                 <Image
-                  src={product.image}
-                  alt={product.title}
+                  src={product.image ? product.image : fallbackImage}
+                  alt={product.product_name}
                   width={100}
                   height={120}
                   className="max-h-30 w-auto"
@@ -79,8 +80,8 @@ export default function Products() {
               </div>
               <div className="flex flex-row justify-between m-3">
                 <div className="flex flex-col flex-1">
-                  <span className="font-bold">{product.title}</span>
-                  <span>چربی: {product.fat}</span>
+                  <span className="font-bold">{product.product_name}</span>
+                  {/* <span>چربی: {product.fat}</span> */}
                 </div>
                 <div className="flex flex-col">
                   <div className="bg-[#e7edf6] rounded-xl shadow p-4 cursor-pointer aspect-square max-h-12 hover:bg-[#b7edf3]">

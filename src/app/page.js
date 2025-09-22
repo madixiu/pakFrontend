@@ -7,8 +7,31 @@ import New from "./Components/Home/New";
 import Products from "./Components/Home/Products";
 import Prizes from "./Components/Home/Prizes";
 import HomeNews from "./Components/Home/News";
+import { apiUrl } from "@/lib/api";
 
-export default function Home() {
+
+
+async function getData() {
+  try {
+    const response = await fetch(apiUrl("/api/home/"), {
+      cache: "no-store",
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch home data');
+    }
+    
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching home data:", error);
+    return null;
+  }
+}
+  
+export default async function Home() {
+  const data = await getData();
+
+
   return (
     <div className=" items-center justify-items-center min-h-screen">
       {/* <Topbar /> Render the Topbar */}
@@ -33,10 +56,10 @@ export default function Home() {
           <About />
         </div>
         <History />
-        <New />
-        <Products />
+        <New  />
+        <Products data={data.featured_products} />
         <Prizes />
-        <HomeNews />
+        <HomeNews data={data.latest_news} />
       </main>
     </div>
   );
