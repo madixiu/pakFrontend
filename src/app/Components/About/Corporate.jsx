@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { BsTelephone } from "react-icons/bs";
 import Image from "next/image";
+import { SlLocationPin } from "react-icons/sl";
 
 export default function Corporates() {
   const [selectedCity, setSelectedCity] = useState(0);
@@ -11,10 +12,10 @@ export default function Corporates() {
     {
       id:1,
       name: "شرکت پاک ساری",
-      address: "ساری، خیابان امام، نبش کوچه 12",
-      phone: "0123456789",
-      fax: "0123456789",
-      postalCode: "123456",
+      address: "مازندران، ساری، بعد از پل تجن، بلوار امام رضا(ع)، جنب هلال احمر.",
+      phone: "0113328201112",
+      fax: "01133281441",
+      postalCode: "4818958916",
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2106.4152281804554!2d53.08691189123628!3d36.56421321928177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f853f006882a339%3A0x15782c635f26e9f8!2z2LTYsdqp2Kog2YTYqNmG24zYp9iqINm-2KfaqQ!5e0!3m2!1sen!2suk!4v1758460289524!5m2!1sen!2suk"
       
     },
@@ -30,10 +31,10 @@ export default function Corporates() {
     {
       id:3,
       name: "شرکت پاک شهرکرد",
-      address: "شهرکرد، شهرک صنعتی، میدان صنعت، بلوار کارآفرینان، گلستان",
-      phone: "5555555555",
-      fax: "9876543210",
-      postalCode: "123456",
+      address: "شهرکرد شهرک صنعتی بلوار کارآفرینان گلستان سوم شرکت پاک پی کد پستی",
+      phone: "03833332003",
+      fax: "03833332482",
+      postalCode: "8813653745",
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510.35686809471093!2d50.92486784146853!3d32.309948003272844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fbef1e7fc42e83d%3A0xa7205c403d9ddd29!2z2LTYsdqp2Kog2b7Yp9qpINm-24w!5e0!3m2!1sen!2suk!4v1758459610317!5m2!1sen!2suk"
       
     }
@@ -92,20 +93,20 @@ export default function Corporates() {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-row bg-[#285caa] p-10 rounded-xl mx-10 mb-10 min-w-[65%]">
-            <div className="flex flex-col gap-5 w-[50%]">
+          <div className="flex flex-row bg-[#285caa] p-10 rounded-2xl mb-10 w-[75%] shadow-2xl">
+            <div className="flex flex-col gap-5 w-[60%]">
               <div>
                 <span className="text-white font-bold">{data[selectedCity].name}</span>
               </div>
               <div className="flex flex-row gap-5">
                 <div className="flex items-center justify-center bg-neutral-100 aspect-square lg:h-12 md:h-6 h-4 rounded-full">
-                  <BsTelephone className="md:h-4 h-2" />
+                  <SlLocationPin className="md:h-4 h-2" />
                 </div>
                 <div className="flex flex-col">
                   <div>
                     <span className="text-white text-sm">آدرس:</span>
                   </div>
-                  <div className="w-[70%]">
+                  <div className="w-[80%]">
                     <span className="text-white text-sm">
                       {data[selectedCity].address}
                     </span>
@@ -161,7 +162,7 @@ export default function Corporates() {
                 </div>
               </div>
             </div>
-            <div className="flex w-[50%] justify-center items-center">
+            <div className="flex w-[40%] justify-end items-center">
               <div className="aspect-square bg-slate-50 rounded-2xl shadow-lg p-2">
                 <iframe
                   src={data[selectedCity].map}

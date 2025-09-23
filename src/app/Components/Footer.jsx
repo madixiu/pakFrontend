@@ -86,12 +86,12 @@ function Footer() {
                   صدای مشتری:  02160946094
                 </span>
               </div>
-              <div className="flex flex-row gap-3 items-center">
+              {/* <div className="flex flex-row gap-3 items-center">
                 <BsPatchCheck className="size-4" />
                 <span className="text-shadow-2xs text-xs font-bold">
                   بازرسی(واتساپ):  09108062614
                 </span>
-              </div>
+              </div> */}
               <div className="flex flex-row gap-3 items-center">
                 <BsPrinter className="size-4" />
                 <span className="text-shadow-2xs text-xs font-bold">
