@@ -21,10 +21,10 @@ export default function Corporates() {
     {
       id:2,
       name: "شرکت پاک سنندج",
-      address: "سنندج، میدان آزادی، خیابان 15",
-      phone: "9876543210",
+      address: "سنندج، میدان آزادی، خیابان سنندج – شهرک صنعتی شماره یک شرکت لبنیات پاستوریزه پاک آرا",
+      phone: "087‌‌‍3‌3383293-5",
       fax: "9876543210",
-      postalCode: "654321",
+      postalCode: "6616873651",
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.006923368548!2d47.04612267607465!3d35.3058094505051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ff996862ae6efcd%3A0xea34e7c5f396b8af!2z2LTYsdqp2Kog2YTYqNmG24zYp9iqINm-2KfaqSDYotix2Kcg2LPZhtmG2K_YrA!5e0!3m2!1sen!2suk!4v1758459471475!5m2!1sen!2suk"
     },
     {

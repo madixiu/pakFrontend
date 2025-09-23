@@ -20,7 +20,7 @@ function ProductsGrid({ data, slug }) {
           ) => (
             <div
               key={product.id}
-              className="flex flex-col bg-white shadow hover:shadow-lg rounded-2xl w-60 cursor-pointer"
+              className="flex flex-col bg-white shadow hover:shadow-lg rounded-2xl w-68 cursor-pointer"
               onClick={() => handleProductClick(product.id)}
             >
               <div className="flex flex-1 p-2 justify-center items-center">
@@ -29,7 +29,7 @@ function ProductsGrid({ data, slug }) {
                   alt={product.product_name}
                   width={300}
                   height={250}
-                  className="bg-slate-50 rounded-xl h-60 w-auto"
+                  className="bg-slate-50 rounded-xl h-68 w-auto"
                 />
               </div>
               <div className="flex flex-row justify-center m-3">
@@ -39,7 +39,9 @@ function ProductsGrid({ data, slug }) {
                     <span className="font-bold text-sm">
                       {product.subgroup}
                     </span>
-                    <span className="text-sm">{product.feature}</span>
+                    <span className="text-sm font-bold">{product.feature}</span>
+                    <span className="text-xs">{product.weight_volume}</span>
+
                   </div>
                 </div>
               </div>

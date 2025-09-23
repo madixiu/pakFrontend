@@ -61,9 +61,9 @@ export default function News() {
             alt={FirstPost.title}
             width={500}
             height={300}
-            className="rounded-2xl z-50 hover:z-0 duration-300"
+            className="rounded-2xl  duration-300"
           />
-          <div className="absolute right-[450px] transition-transform duration-300 ease-in-out hover:-translate-x-[50px] z-10 hover:z-60 w-fit">
+          <div className="absolute right-[450px] transition-transform duration-300 ease-in-out hover:-translate-x-[50px] w-fit">
             <div className="flex flex-col p-5 bg-white shadow-2xl rounded-2xl gap-5 justify-around h-[80%]">
               <div className="bg-[#e7edf6] rounded-xl py-1 px-4 shadow w-fit">
                 <span className="text-xs">اخبار</span>
