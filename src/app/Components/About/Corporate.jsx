@@ -3,7 +3,8 @@ import { useState } from "react";
 import { BsTelephone } from "react-icons/bs";
 import Image from "next/image";
 import { SlLocationPin } from "react-icons/sl";
-
+import { MdOutlineFax } from "react-icons/md";
+import { PiMailbox } from "react-icons/pi";
 export default function Corporates() {
   const [selectedCity, setSelectedCity] = useState(0);
 
@@ -96,7 +97,7 @@ export default function Corporates() {
           <div className="flex flex-row bg-[#285caa] p-10 rounded-2xl mb-10 w-[75%] shadow-2xl">
             <div className="flex flex-col gap-5 w-[60%]">
               <div>
-                <span className="text-white font-bold">{data[selectedCity].name}</span>
+                <span className="text-white font-bold text-lg">{data[selectedCity].name}</span>
               </div>
               <div className="flex flex-row gap-5">
                 <div className="flex items-center justify-center bg-neutral-100 aspect-square lg:h-12 md:h-6 h-4 rounded-full">
@@ -104,7 +105,7 @@ export default function Corporates() {
                 </div>
                 <div className="flex flex-col">
                   <div>
-                    <span className="text-white text-sm">آدرس:</span>
+                    <span className="text-white text-sm font-bold">آدرس:</span>
                   </div>
                   <div className="w-[80%]">
                     <span className="text-white text-sm">
@@ -119,7 +120,7 @@ export default function Corporates() {
                 </div>
                 <div className="flex flex-col">
                   <div>
-                    <span className="text-white text-sm">شماره تماس:</span>
+                    <span className="text-white text-sm font-bold">شماره تماس:</span>
                   </div>
                   <div>
                     <span className="text-white text-sm">
@@ -135,11 +136,11 @@ export default function Corporates() {
               </div>
               <div className="flex flex-row gap-5">
                 <div className="flex items-center justify-center bg-neutral-100 aspect-square lg:h-12 md:h-6 h-4 rounded-full">
-                  <BsTelephone className="md:h-4 h-2" />
+                  <MdOutlineFax className="md:h-4 h-2" />
                 </div>
                 <div className="flex flex-col">
                   <div>
-                    <span className="text-white text-sm">فکس:</span>
+                    <span className="text-white text-sm font-bold">فکس:</span>
                   </div>
                   <div className="">
                     <span className="text-white text-sm">
@@ -150,11 +151,11 @@ export default function Corporates() {
               </div>
               <div className="flex flex-row gap-5">
                 <div className="flex items-center justify-center bg-neutral-100 aspect-square lg:h-12 md:h-6 h-4 rounded-full">
-                  <BsTelephone className="md:h-4 h-2" />
+                  <PiMailbox className="md:h-4 h-2" />
                 </div>
                 <div className="flex flex-col">
                   <div>
-                    <span className="text-white text-sm">کد پستی:</span>
+                    <span className="text-white text-sm font-bold">کد پستی:</span>
                   </div>
                   <div className="">
                     <span className="text-white text-sm">{data[selectedCity].postalCode}</span>
