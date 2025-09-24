@@ -87,7 +87,7 @@ function CategoryCard({
     <div>
       <div
         className={`flex w-fit p-7 rounded-2xl lg:hover:bg-[#ff5d00] cursor-pointer transition-colors duration-300 hover:shadow-xl ${
-          lastSegment === slug ? " bg-[#ff5d00]" : "bg-[#3d5797]"
+          lastSegment === slug ? " bg-[#506fad] border-white border" : "bg-[#3d5797]"
         }`}
         onClick={handleClick}
       >
