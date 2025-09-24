@@ -13,8 +13,7 @@ import {
 import { useRouter } from "next/navigation";
 
 export default function News() {
-
-    const router = useRouter();
+  const router = useRouter();
 
   function handleClick(id) {
     router.push(`/news/${id}`);
@@ -46,7 +45,10 @@ export default function News() {
     <div>
       <BreadCrumb path={["خانه", "اخبار"]} />
       {/* //? Main News Div */}
-      <div className="flex justify-center flex-col items-center" onClick={() => handleClick(FirstPost.id)}>
+      <div
+        className="flex justify-center flex-col items-center"
+        onClick={() => handleClick(FirstPost.id)}
+      >
         <div className="py-10">
           <span className="flex justify-center items-center font-bold text-3xl">
             اخبار

@@ -48,7 +48,11 @@ function HomeNews({ data }) {
         <div className="flex flex-row flex-1">
           <div className="flex flex-col gap-10 flex-1 p-5 cursor-pointer">
             {newsItems.map((item) => (
-              <div key={item.id} className="flex-1 flex flex-row gap-2" onClick={() => router.push(`/news/${item.id}`)}>
+              <div
+                key={item.id}
+                className="flex-1 flex flex-row gap-2"
+                onClick={() => router.push(`/news/${item.id}`)}
+              >
                 <div className="group relative overflow-hidden rounded-3xl h-fit cursor-pointer w-[35%]">
                   <Image
                     src={item.image ? ImgUrl(item.image) : fallbackImage} // Use API image or fallback
@@ -93,7 +97,11 @@ function HomeNews({ data }) {
           <div className="bg-[#F4F4F4] w-[2]"></div>
           <div className="flex flex-col gap-10 p-5 flex-1">
             {blogItems.map((item) => (
-              <div key={item.id} className="flex flex-col gap-2 cursor-pointer" onClick={() => router.push(`/news/${item.id}`)}>
+              <div
+                key={item.id}
+                className="flex flex-col gap-2 cursor-pointer"
+                onClick={() => router.push(`/news/${item.id}`)}
+              >
                 <div>
                   <span className="font-bold">{item.title}</span>
                 </div>
