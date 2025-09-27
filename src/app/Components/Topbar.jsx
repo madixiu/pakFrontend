@@ -10,7 +10,7 @@ import { PiBagSimpleBold } from "react-icons/pi";
 import { MdFormatListBulleted } from "react-icons/md";
 import { BsTelephone } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
-import {  useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Topbar() {
   const router = useRouter();
@@ -28,25 +28,25 @@ function Topbar() {
   };
 
   // Custom hook to detect clicks outside of component
-const useOutsideClick = (callback) => {
-  const ref = useRef();
+  const useOutsideClick = (callback) => {
+    const ref = useRef();
 
-  useEffect(() => {
-    const handleClick = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        callback();
-      }
-    };
+    useEffect(() => {
+      const handleClick = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          callback();
+        }
+      };
 
-    document.addEventListener('click', handleClick);
-    // setIsMenuOpen(false)
-    return () => {
-      document.removeEventListener('click', handleClick);
-    };
-  }, [callback]);
+      document.addEventListener("click", handleClick);
+      // setIsMenuOpen(false)
+      return () => {
+        document.removeEventListener("click", handleClick);
+      };
+    }, [callback]);
 
-  return ref;
-};
+    return ref;
+  };
 
   // Use the custom hook
   const menuRef = useOutsideClick(closeMenu);
@@ -122,7 +122,7 @@ const useOutsideClick = (callback) => {
                   className="flex flex-row gap-1 items-start justify-center cursor-pointer hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/")}
                 >
-                  <RiHome5Line size={16}/>
+                  <RiHome5Line size={16} />
                   <span className="font-bold">صفحه اصلی</span>
                 </div>
                 {/* <div
@@ -136,28 +136,28 @@ const useOutsideClick = (callback) => {
                   className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/news")}
                 >
-                  <PiRadio size={16}/>
+                  <PiRadio size={16} />
                   <span className="font-bold">اخبار و اطلاعیه‌ها</span>
                 </div>
                 <div
                   className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
-                  // onClick={() => handleClick("/")}
+                  onClick={() => handleClick("/shareholders")}
                 >
-                  <PiBagSimpleBold size={16}/>
-                  <span className="text-slate-400">امور مجامع و سهام</span>
+                  <PiBagSimpleBold size={16} />
+                  <span className="font-bold">امور مجامع و سهام</span>
                 </div>
                 <div
                   className="flex flex-row gap-1 cursor-pointer items-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/about")}
                 >
-                  <MdFormatListBulleted size={16}/>
+                  <MdFormatListBulleted size={16} />
                   <span className="font-bold">درباره ما</span>
                 </div>
                 <div
                   className="flex flex-row gap-1 cursor-pointer items-center justify-center hover:text-[#2d60a5] p-3 hover:bg-neutral-100 rounded-xl"
                   onClick={() => handleClick("/contact")}
                 >
-                  <BsTelephone size={16}/>
+                  <BsTelephone size={16} />
                   <span className="font-bold"> تماس با ما</span>
                 </div>
               </div>
@@ -190,21 +190,39 @@ const useOutsideClick = (callback) => {
           {/* This empty space balances the hamburger icon on the right */}
         </div>
 
-        <div className={`absolute bg-white border border-gray-200 shadow-xl rounded-xl top-20 right-5 p-1 z-50 transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4'}`}>
+        <div
+          className={`absolute bg-white border border-gray-200 shadow-xl rounded-xl top-20 right-5 p-1 z-50 transition-all duration-300 ease-out ${
+            isMenuOpen
+              ? "opacity-100 translate-y-0"
+              : "max-h-0 opacity-0 -translate-y-4"
+          }`}
+        >
           <div className="flex flex-col gap-1">
-            <div className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl" onClick={() => handleClick("/")}>
+            <div
+              className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl"
+              onClick={() => handleClick("/")}
+            >
               <RiHome5Line />
               <span>صفحه اصلی</span>
             </div>
-            <div className="flex flex-row justify-center items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl" onClick={() => handleClick("/news")}>
+            <div
+              className="flex flex-row justify-center items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl"
+              onClick={() => handleClick("/news")}
+            >
               <PiRadio />
               <span>اخبار و اطلاعیه‌ها</span>
             </div>
-            <div className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl" onClick={() => handleClick("/about")}>
+            <div
+              className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl"
+              onClick={() => handleClick("/about")}
+            >
               <MdFormatListBulleted />
               <span>درباره ما</span>
             </div>
-            <div className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl" onClick={() => handleClick("/contact")}>
+            <div
+              className="flex flex-row justify-start items-center gap-1 bg-gray-100 px-6 py-4 rounded-2xl"
+              onClick={() => handleClick("/contact")}
+            >
               <BsTelephone />
               <span> تماس با ما</span>
             </div>
